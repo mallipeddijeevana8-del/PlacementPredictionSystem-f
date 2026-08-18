@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 def load_data():
-    df = pd.read_csv(r"C:\Users\hp\PycharmProjects\Placementpredictionsystem\src\data\IRIS.csv")
+    df = pd.read_csv(r"C:\Users\sravani\PycharmProjects\Placementpredictionsystem\src\data\IRIS.csv")
     return df
 
 def eda(df):
