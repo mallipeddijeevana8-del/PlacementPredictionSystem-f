@@ -14,17 +14,19 @@ from src.data.load_data import load_data
 # ---------------------------------------------------------
 # 1. SPLIT DATA
 # ---------------------------------------------------------
-def split_data(df):
-
-    X = df.drop(columns=["PlacementStatus"])
-    y = df["PlacementStatus"]
+def split_data(df,target_column,drop_columns=None,stratify=False):
+    if drop_columns is None:
+        drop_columns=[]
+    X = df.drop(columns=drop_columns+[target_column])
+    y = df[target_column]
+    stratify_value=y if stratify else None
 
     X_train, X_test, y_train, y_test = train_test_split(
         X,
         y,
         test_size=0.2,
         random_state=42,
-        stratify=y
+        stratify=stratify_value
     )
 
     return X_train, X_test, y_train, y_test
